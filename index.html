@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medieval Quest - Home</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #2c2c2c;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .navbar a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .navbar a:hover {
+            background-color: #575757;
+        }
+        .content {
+            padding: 20px;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        h2 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="#travel" class="tab-link">Travel</a>
+        <a href="#church" class="tab-link">Church</a>
+        <a href="#crimes" class="tab-link">Crimes</a>
+        <a href="#town" class="tab-link">Town</a>
+        <a href="#factions" class="tab-link">Factions</a>
+        <a href="#job" class="tab-link">Job</a>
+        <a href="#" id="profileLink" class="tab-link">Profile</a>
+    </div>
+
+    <div class="content">
+        <div id="travel" class="tab-content active">
+            <h2>Travel</h2>
+            </div>
+        <div id="church" class="tab-content">
+            <h2>Church</h2>
+                    </div>
+        <div id="crimes" class="tab-content">
+            <h2>Crimes</h2>
+                    </div>
+        <div id="town" class="tab-content">
+            <h2>Town</h2>
+                    </div>
+        <div id="factions" class="tab-content">
+            <h2>Factions</h2>
+                    </div>
+        <div id="job" class="tab-content">
+            <h2>Job</h2>
+                    </div>
+        <div id="profile" class="tab-content">
+            <h2>Profile</h2>
+                    </div>
+    </div>
+
+    <script>
+        const tabs = document.querySelectorAll('.tab-link');
+        const tabContents = document.querySelectorAll('.tab-content');
+        const profileLink = document.getElementById('profileLink');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', function(event) {
+                event.preventDefault();
+
+                // Handle profile link separately
+                if (this === profileLink) {
+                    window.open('file:///C:/Users/bertlog/Desktop/HTML%20SHIT/profile.html', '_blank');
+                    return;
+                }
+
+                // Remove 'active' class from all tabs and contents
+                tabs.forEach(tab => tab.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+
+                // Add 'active' class to the clicked tab and its corresponding content
+                this.classList.add('active');
+                const targetContent = document.querySelector(this.getAttribute('href'));
+                targetContent.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
