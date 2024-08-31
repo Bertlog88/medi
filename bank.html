@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank System</title>
+    <link rel="stylesheet" href="bank.css">
+    <script src="bank.js"></script>
+</head>
+<body>
+
+<!-- Deposit Gold Popup -->
+<div id="deposit-popup" class="popup">
+    <div class="popup-content">
+        <span class="close" onclick="closePopup('deposit-popup')">&times;</span>
+        <h2>Deposit Gold</h2>
+        <div class="form-group">
+            <label for="deposit-amount">Amount:</label>
+            <input type="number" id="deposit-amount" name="amount">
+        </div>
+        <div class="button-container">
+            <button class="confirm-btn" onclick="depositGold()">Confirm</button>
+        </div>
+    </div>
+</div>
+
+<!-- Withdraw Gold Popup -->
+<div id="withdraw-popup" class="popup">
+    <div class="popup-content">
+        <span class="close" onclick="closePopup('withdraw-popup')">&times;</span>
+        <h2>Withdraw Gold</h2>
+        <div class="form-group">
+            <label for="withdraw-amount">Amount:</label>
+            <input type="number" id="withdraw-amount" name="amount">
+        </div>
+        <div class="button-container">
+            <button class="confirm-btn" onclick="withdrawGold()">Confirm</button>
+        </div>
+    </div>
+</div>
+
+<!-- Transfer Gold Popup -->
+<div id="transfer-popup" class="popup">
+    <div class="popup-content">
+        <span class="close" onclick="closePopup('transfer-popup')">&times;</span>
+        <h2>Give Gold</h2>
+        <div class="form-group">
+            <label for="transfer-username">Username:</label>
+            <input type="text" id="transfer-username" name="username">
+        </div>
+        <div class="form-group">
+            <label for="transfer-amount">Amount:</label>
+            <input type="number" id="transfer-amount" name="amount">
+        </div>
+        <div class="button-container">
+            <button class="confirm-btn" onclick="transferGold()">Confirm</button>
+        </div>
+    </div>
+</div>
+
+<!-- Current Gold Display -->
+<div id="current-gold">
+    Gold: 1,000
+</div>
+
+<!-- Action Buttons -->
+<div class="action-buttons">
+    <button class="btn" onclick="openPopup('deposit-popup')">Deposit Gold</button>
+    <button class="btn" onclick="openPopup('withdraw-popup')">Withdraw Gold</button>
+    <button class="btn" onclick="openPopup('transfer-popup')">Give Gold</button>
+</div>
+
+<script src="scripts.js"></script>
+</body>
+</html>
