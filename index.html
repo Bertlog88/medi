@@ -51,7 +51,7 @@
         <a href="#town" class="tab-link">Town</a>
         <a href="#factions" class="tab-link">Factions</a>
         <a href="#job" class="tab-link">Job</a>
-        <a href="#" id="profileLink" class="tab-link">Profile</a>
+        <a href="https://bertlog88.github.io/medi/profile.html" class="tab-link" id="profileLink">Profile</a>
     </div>
 
     <div class="content">
@@ -81,18 +81,14 @@
     <script>
         const tabs = document.querySelectorAll('.tab-link');
         const tabContents = document.querySelectorAll('.tab-content');
-        const profileLink = document.getElementById('profileLink');
 
         tabs.forEach(tab => {
             tab.addEventListener('click', function(event) {
-                event.preventDefault();
-
-                // Handle profile link separately
-                if (this === profileLink) {
-                    // Navigate to the profile page in the same tab
-                    location.href = 'https://bertlog88.github.io/medi/profile.html';
+                if (this.getAttribute('href').startsWith('http')) {
+                    // Handle external link navigation
                     return;
                 }
+                event.preventDefault();
 
                 // Remove 'active' class from all tabs and contents
                 tabs.forEach(tab => tab.classList.remove('active'));
