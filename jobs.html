@@ -1,0 +1,25 @@
+<link rel="stylesheet" href="jobs.css"> <!-- Link to CSS file -->
+ <script src="jobscript.js"></script>
+<div class="job-container">
+    <div class="job-info">
+        <h2>Job Information</h2>
+        <p><strong>Job Name:</strong> Blacksmith</p>
+        <p><strong>Role:</strong> Blade Smith</p>
+        <p><strong>Days in Job:</strong> 15</p>
+        <p><strong>Daily Income:</strong> 500 Gold per day</p>
+        <p><strong>Job Points:</strong> 3</p>
+    </div>
+
+    <div class="side-jobs">
+        <h2>Side Jobs (reset in <span id="side-jobs-timer">2:30:00</span>)</h2>
+        <ul>
+            <li>Farmer (150 Gold) <button class="complete-btn" onclick="startTimer(this, 15)">Complete</button></li>
+            <li>Tailor (200 Gold) <button class="complete-btn" onclick="startTimer(this, 20)">Complete</button></li>
+            <li>Baker (120 Gold) <button class="complete-btn" onclick="startTimer(this, 10)">Complete</button></li>
+            <li>Apothecary (250 Gold) <button class="complete-btn" onclick="startTimer(this, 30)">Complete</button></li>
+            <li>Merchant (300 Gold) <button class="complete-btn" onclick="startTimer(this, 60)">Complete</button></li>
+        </ul>
+    </div>
+</div>
+
+

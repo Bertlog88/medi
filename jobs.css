@@ -1,0 +1,52 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Easier-to-read font */
+    background-color: #2a2a2a;
+    color: #333;
+}
+
+.job-container {
+    width: 70%; /* Narrower layout */
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.job-info,
+.side-jobs {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+.side-jobs ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.side-jobs li {
+    margin-bottom: 10px;
+}
+
+.complete-btn {
+    padding: 5px 10px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+.complete-btn:disabled {
+    background-color: #999;
+}
+
+.complete-timer {
+    font-weight: bold;
+    color: #d9534f;
+}
+
