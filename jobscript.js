@@ -2,24 +2,7 @@ const sideJobs = [
     { name: 'Farmer', gold: 10 },
     { name: 'Tailor', gold: 15 },
     { name: 'Miller', gold: 20 },
-    { name: 'Baker', gold: 25 },
-    { name: 'Butcher', gold: 30 },
-    { name: 'Apothecary', gold: 35 },
-    { name: 'Astrologer', gold: 40 },
-    { name: 'Carpenter', gold: 45 },
-    { name: 'Shoe Maker', gold: 50 },
-    { name: 'Merchant', gold: 55 },
-    { name: 'Stonemason', gold: 60 },
-    { name: 'Weaver', gold: 65 },
-    { name: 'Winemaker', gold: 70 },
-    { name: 'Fisherman', gold: 75 },
-    { name: 'Trumpet Player', gold: 80 },
-    { name: 'Roofer', gold: 85 },
-    { name: 'Locksmith', gold: 90 },
-    { name: 'Tanner', gold: 95 },
-    { name: 'Tax Collector', gold: 100 },
-    { name: 'Belt Maker', gold: 105 },
-    { name: 'Armourer', gold: 110 }
+    { name: 'Baker', gold: 25 }
 ];
 
 const cooldownBase = 3 * 60 * 60 * 1000; // Base cooldown time (3 hours in milliseconds)
@@ -59,7 +42,7 @@ function initializeSideJobs() {
 
 function getRandomSideJobs() {
     let shuffled = sideJobs.sort(() => 0.5 - Math.random());
-    return shuffled.slice(0, 5);
+    return shuffled.slice(0, 4); // Only 4 jobs available
 }
 
 function startSideJob(jobName, gold) {
@@ -74,6 +57,7 @@ function startSideJob(jobName, gold) {
     showNotification(`Starting job: ${jobName}. You will receive ${gold} Gold.`);
     sideJobList = sideJobList.filter(job => job.name !== jobName);
     displaySideJobs(); // Refresh job list to update cooldown timers
+    updateCooldownTimer(jobName); // Start cooldown timer
 }
 
 function getCooldownTime(gold) {
@@ -91,6 +75,20 @@ function updateCooldownTimer(jobName) {
         const remainingTime = endTime - now;
         timerElement.innerText = `Cooldown: ${formatTime(remainingTime)} for ${jobName}`;
         timerElement.style.display = 'block';
+
+        // Update the timer every second
+        const smallTimer = setInterval(() => {
+            const now = new Date().getTime();
+            const remainingTime = endTime - now;
+            if (remainingTime <= 0) {
+                clearInterval(smallTimer);
+                sideJobCooldowns[jobName] = null;
+                timerElement.style.display = 'none';
+                displaySideJobs(); // Refresh the list to show new jobs
+            } else {
+                timerElement.innerText = `Cooldown: ${formatTime(remainingTime)} for ${jobName}`;
+            }
+        }, 1000);
     } else {
         timerElement.style.display = 'none';
     }
@@ -101,23 +99,32 @@ function showNotification(message) {
     const messageElement = document.getElementById('notification-message');
     messageElement.innerText = message;
 
-    const timerElement = document.getElementById('notification-timer');
-    let countdown = 10; // Example countdown duration in seconds
-
-    function updateTimer() {
-        countdown--;
-        if (countdown <= 0) {
-            clearInterval(timerInterval);
-            modal.style.display = 'none';
-        } else {
-            timerElement.innerText = `Time left: ${countdown}s`;
-        }
-    }
-
-    updateTimer();
-    const timerInterval = setInterval(updateTimer, 1000);
-
     modal.style.display = 'flex';
+    const closeBtn = document.querySelector('.close-btn');
+    closeBtn.onclick = () => {
+        modal.style.display = 'none';
+        startSideJobCooldowns(); // Start small timer after exiting popup
+    };
+}
+
+function startSideJobCooldowns() {
+    sideJobList.forEach(job => {
+        const timerElement = document.getElementById(`${job.name}-timer`);
+        if (timerElement) {
+            let remainingTime = sideJobCooldowns[job.name] - new Date().getTime();
+            if (remainingTime > 0) {
+                const smallTimer = setInterval(() => {
+                    remainingTime -= 1000;
+                    if (remainingTime <= 0) {
+                        clearInterval(smallTimer);
+                        sideJobCooldowns[job.name] = null;
+                        displaySideJobs(); // Refresh the list to show new jobs
+                    }
+                    timerElement.innerText = `Cooldown: ${formatTime(remainingTime)} for ${job.name}`;
+                }, 1000);
+            }
+        }
+    });
 }
 
 function formatTime(ms) {
