@@ -1,52 +1,95 @@
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Easier-to-read font */
+    font-family: Arial, sans-serif;
     background-color: #2a2a2a;
-    color: #333;
-}
-
-.job-container {
-    width: 70%; /* Narrower layout */
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.job-info,
-.side-jobs {
-    margin-bottom: 20px;
-    padding: 15px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    background-color: #fff;
-}
-
-.side-jobs ul {
-    list-style-type: none;
+    color: #fff;
+    margin: 0;
     padding: 0;
 }
 
-.side-jobs li {
-    margin-bottom: 10px;
+.container {
+    margin: 20px auto;
+    max-width: 800px;
+    text-align: center;
 }
 
-.complete-btn {
-    padding: 5px 10px;
-    margin-left: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #007bff;
+.rounded-box {
+    background-color: #333;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+h2 {
     color: #fff;
+}
+
+p {
+    margin: 10px 0;
+}
+
+.side-job-item {
+    margin-bottom: 10px;
+    background-color: #444;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+}
+
+button {
+    background-color: #5c5c5c;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
     cursor: pointer;
+    margin-top: 10px;
 }
 
-.complete-btn:disabled {
-    background-color: #999;
+button:hover {
+    background-color: #777;
 }
 
-.complete-timer {
+#side-job-reset-timer {
+    color: #ff5c5c;
     font-weight: bold;
-    color: #d9534f;
+    margin-top: 10px;
+}
+
+#no-jobs-message {
+    color: #ff5c5c;
+    font-weight: bold;
+    margin-top: 10px;
+    display: none; /* Initially hidden */
+}
+
+#notification-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+#notification-modal-content {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    width: 300px; /* Adjust width as needed */
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
 }
 
