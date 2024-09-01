@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OAuth Callback</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        .message {
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="message" id="message">Processing...</div>
+    <script>
+        // Function to extract query parameters from the URL
+        function getQueryParams() {
+            const params = new URLSearchParams(window.location.hash.substr(1));
+            return {
+                accessToken: params.get('access_token'),
+                idToken: params.get('id_token'),
+                error: params.get('error')
+            };
+        }
+
+        // Handle OAuth response
+        function handleAuthResponse() {
+            const { accessToken, idToken, error } = getQueryParams();
+
+            if (error) {
+                document.getElementById('message').textContent = `Error: ${error}`;
+                return;
+            }
+
+            if (accessToken || idToken) {
+                // You can also verify the token and fetch user info if needed
+                document.getElementById('message').textContent = 'Login successful!';
+                // Optionally, save tokens or user info in localStorage or sessionStorage
+                // Example: localStorage.setItem('accessToken', accessToken);
+
+                // Redirect to a different page after login
+                // window.location.href = 'home.html'; // or any other page
+            } else {
+                document.getElementById('message').textContent = 'Login failed. Please try again.';
+            }
+        }
+
+        // Execute the function to handle the response
+        handleAuthResponse();
+    </script>
+</body>
+</html>
