@@ -68,7 +68,8 @@
             const scope = 'profile email openid';
             const responseType = 'token'; // Or 'code' if you're using the authorization code flow
 
-            const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scope}&response_type=${responseType}`;
+            const authUrl = `const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${clientId}&redirect_uri=${redirectUri}&scope=openid email&response_type=code&access_type=online`;
+`;
 
             window.location.href = authUrl;
         }
