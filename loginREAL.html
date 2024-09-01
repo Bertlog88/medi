@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medieval Quest - Login</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('https://i.imgur.com/mutfyaE.jpeg'); /* Replace with your background image */
+            background-size: cover;
+            background-position: center;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 400px;
+            width: 100%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #5a7d9a;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #4b6881;
+        }
+        .google-login {
+            background-color: #4285F4;
+            margin-top: 10px;
+        }
+        .google-login:hover {
+            background-color: #357ae8;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to KOG!</h1>
+        <button class="google-login" onclick="googleLogin()">Login with Google</button>
+    </div>
+
+    <script>
+        function googleLogin() {
+            // Replace 'your-client-id' with your actual Google OAuth client ID
+            const clientId = 'your-client-id';
+            const redirectUri = 'your-redirect-uri'; // Replace with your redirect URI
+            const scope = 'profile email';
+            const responseType = 'token'; // Or 'code' if you're using the authorization code flow
+
+            const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scope}&response_type=${responseType}`;
+
+            window.location.href = authUrl;
+        }
+    </script>
+</body>
+</html>
