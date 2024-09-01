@@ -38,13 +38,8 @@
             }
 
             if (accessToken || idToken) {
-                // You can also verify the token and fetch user info if needed
-                document.getElementById('message').textContent = 'Login successful!';
-                // Optionally, save tokens or user info in localStorage or sessionStorage
-                // Example: localStorage.setItem('accessToken', accessToken);
-
-                // Redirect to a different page after login
-                // window.location.href = 'home.html'; // or any other page
+                // Redirect to main.html after successful login
+                window.location.href = 'https://bertlog88.github.io/medi/main.html';
             } else {
                 document.getElementById('message').textContent = 'Login failed. Please try again.';
             }
