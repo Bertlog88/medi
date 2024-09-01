@@ -93,3 +93,9 @@ button:hover {
     cursor: pointer;
 }
 
+.cooldown-timer {
+    color: #ff5c5c;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
