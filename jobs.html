@@ -1,25 +1,40 @@
-<link rel="stylesheet" href="jobs.css"> <!-- Link to CSS file -->
- <script src="jobscript.js"></script>
-<div class="job-container">
-    <div class="job-info">
-        <h2>Job Information</h2>
-        <p><strong>Job Name:</strong> Blacksmith</p>
-        <p><strong>Role:</strong> Blade Smith</p>
-        <p><strong>Days in Job:</strong> 15</p>
-        <p><strong>Daily Income:</strong> 500 Gold per day</p>
-        <p><strong>Job Points:</strong> 3</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jobs and Side Jobs</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="rounded-box">
+            <h2>Main Job</h2>
+            <div id="main-job-details">
+                <p><strong>Job:</strong> <span id="job-name">N/A</span></p>
+                <p><strong>Rank:</strong> <span id="job-rank">N/A</span></p>
+                <p><strong>Days Worked:</strong> <span id="days-worked">0</span></p>
+                <p><strong>Daily Income:</strong> <span id="daily-income">0 Gold</span></p>
+                <p><strong>Job Points:</strong> <span id="job-points">0</span></p>
+            </div>
+        </div>
+
+        <div class="rounded-box">
+            <h2>Available Side Jobs</h2>
+            <div id="side-job-list"></div>
+            <div id="no-jobs-message" class="rounded-box"></div>
+            <div id="side-job-reset-timer" class="rounded-box"></div>
+        </div>
     </div>
 
-    <div class="side-jobs">
-        <h2>Side Jobs (reset in <span id="side-jobs-timer">2:30:00</span>)</h2>
-        <ul>
-            <li>Farmer (150 Gold) <button class="complete-btn" onclick="startTimer(this, 15)">Complete</button></li>
-            <li>Tailor (200 Gold) <button class="complete-btn" onclick="startTimer(this, 20)">Complete</button></li>
-            <li>Baker (120 Gold) <button class="complete-btn" onclick="startTimer(this, 10)">Complete</button></li>
-            <li>Apothecary (250 Gold) <button class="complete-btn" onclick="startTimer(this, 30)">Complete</button></li>
-            <li>Merchant (300 Gold) <button class="complete-btn" onclick="startTimer(this, 60)">Complete</button></li>
-        </ul>
+    <div id="notification-modal">
+        <div id="notification-modal-content">
+            <span class="close-btn">&times;</span>
+            <p id="notification-message"></p>
+            <p id="notification-timer"></p>
+        </div>
     </div>
-</div>
-
-
+    
+    <script src="script.js"></script>
+</body>
+</html>
