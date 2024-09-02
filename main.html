@@ -1,30 +1,6 @@
 <!DOCTYPE html>
-<link rel="stylesheet" href="main.css"> <!-- Link to CSS file -->
-<script src="main.js"></script> 
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome Modal</title>
-</head>
-<body>
-    <!-- Modal Structure -->
-    <div id="welcome-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeWelcomeModal()">&times;</span>
-            <p class="modal-text">Welcome to our game!</p>
-            <p class="modal-text">This is currently a "Work In Progress - Hobby game created by 2 friends."</p>
-            <p class="modal-text">We hope you enjoy your time here and will stick around to see this game of ours until it is fully completed.</p>
-            <p class="modal-text">Love, J.H & L.M</p>
-        </div>
-    </div>
 
-  <!  <script src="script.js"></script>
-</body>
-</html>
-
-<!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,11 +13,13 @@
             margin: 0;
             padding: 0;
         }
+
         .navbar {
             background-color: #333;
             overflow: hidden;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
+
         .navbar a {
             float: left;
             display: block;
@@ -51,41 +29,43 @@
             text-decoration: none;
             font-size: 16px;
         }
+
         .navbar a:hover {
             background-color: #575757;
         }
+
         .content {
             padding: 20px;
         }
+
         .tab-content {
             display: none;
         }
+
         .tab-content.active {
             display: block;
         }
+
         h2 {
             margin-top: 0;
         }
     </style>
 </head>
+
 <body>
     <div class="navbar">
         <a href="#travel" class="tab-link">Travel</a>
-        <a href="#church" class="tab-link">Church</a>
+        <a href="https://bertlog88.github.io/medi/bank.html" class="tab-link" id="churchLink">Church</a>
         <a href="#crimes" class="tab-link">Crimes</a>
         <a href="#town" class="tab-link">Town</a>
         <a href="#factions" class="tab-link">Factions</a>
         <a href="https://bertlog88.github.io/medi/jobs.html" class="tab-link" id="jobLink">Job</a>
         <a href="https://bertlog88.github.io/medi/profile.html" class="tab-link" id="profileLink">Profile</a>
-        <a href="https://bertlog88.github.io/medi/bank.html" class="tab-link" id="churchLink">Church</a>
     </div>
 
     <div class="content">
         <div id="travel" class="tab-content active">
             <h2>Travel</h2>
-        </div>
-        <div id="church" class="tab-content">
-            <h2>Church</h2>
         </div>
         <div id="crimes" class="tab-content">
             <h2>Crimes</h2>
@@ -109,7 +89,7 @@
         const tabContents = document.querySelectorAll('.tab-content');
 
         tabs.forEach(tab => {
-            tab.addEventListener('click', function(event) {
+            tab.addEventListener('click', function (event) {
                 if (this.getAttribute('href').startsWith('http')) {
                     // Handle external link navigation
                     return;
@@ -128,4 +108,5 @@
         });
     </script>
 </body>
+
 </html>
