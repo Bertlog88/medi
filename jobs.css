@@ -1,3 +1,4 @@
+/* Body styles */
 body {
     font-family: Arial, sans-serif;
     background-color: #2a2a2a;
@@ -6,12 +7,39 @@ body {
     padding: 0;
 }
 
+/* Navbar styles */
+.navbar {
+    width: 100%; /* Ensure the navbar spans the full width */
+    background-color: #333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: fixed; /* Fix the navbar at the top of the page */
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Ensure the navbar stays on top of other content */
+}
+
+.navbar a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.navbar a:hover {
+    background-color: #575757;
+}
+
+/* Container styles */
 .container {
     margin: 20px auto;
     max-width: 800px;
     text-align: center;
 }
 
+/* Rounded box styles */
 .rounded-box {
     background-color: #333;
     border-radius: 10px;
@@ -19,14 +47,17 @@ body {
     margin-bottom: 20px;
 }
 
+/* Heading styles */
 h2 {
     color: #fff;
 }
 
+/* Paragraph styles */
 p {
     margin: 10px 0;
 }
 
+/* Side job item styles */
 .side-job-item {
     margin-bottom: 10px;
     background-color: #444;
@@ -35,6 +66,7 @@ p {
     text-align: center;
 }
 
+/* Button styles */
 button {
     background-color: #5c5c5c;
     color: #fff;
@@ -49,12 +81,14 @@ button:hover {
     background-color: #777;
 }
 
+/* Side job reset timer styles */
 #side-job-reset-timer {
     color: #ff5c5c;
     font-weight: bold;
     margin-top: 10px;
 }
 
+/* No jobs message styles */
 #no-jobs-message {
     color: #ff5c5c;
     font-weight: bold;
@@ -62,6 +96,7 @@ button:hover {
     display: none; /* Initially hidden */
 }
 
+/* Notification modal styles */
 #notification-modal {
     display: none;
     position: fixed;
@@ -85,6 +120,7 @@ button:hover {
     width: 300px; /* Adjust width as needed */
 }
 
+/* Close button styles */
 .close-btn {
     position: absolute;
     top: 10px;
@@ -93,9 +129,9 @@ button:hover {
     cursor: pointer;
 }
 
+/* Cooldown timer styles */
 .cooldown-timer {
     color: #ff5c5c;
     font-weight: bold;
     margin-top: 10px;
 }
-
