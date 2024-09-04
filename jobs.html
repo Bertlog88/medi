@@ -1,15 +1,24 @@
 <!DOCTYPE html>
-<link rel="stylesheet" href="jobs.css"> <!-- Link to CSS file -->
-<script src="jobscript.js"></script>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jobs and Side Jobs</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="jobs.css"> <!-- Link to CSS file -->
+    <link rel="stylesheet" href="profile.css"> <!-- Link to additional CSS file if needed -->
 </head>
 <body>
-    <div class="container">
+    <div class="navbar">
+        <a href="#travel" class="tab-link">Travel</a>
+        <a href="https://bertlog88.github.io/medi/bank.html" class="tab-link" id="churchLink">Church</a>
+        <a href="#crimes" class="tab-link">Crimes</a>
+        <a href="#town" class="tab-link">Town</a>
+        <a href="#factions" class="tab-link">Factions</a>
+        <a href="https://bertlog88.github.io/medi/jobs.html" class="tab-link" id="jobLink">Job</a>
+        <a href="https://bertlog88.github.io/medi/profile.html" class="tab-link" id="profileLink">Profile</a>
+    </div>
+
+    <div class="container" style="margin-top: 60px;"> <!-- Added margin-top to account for fixed navbar -->
         <div class="rounded-box">
             <h2>Main Job</h2>
             <div id="main-job-details">
@@ -37,6 +46,7 @@
         </div>
     </div>
     
+    <script src="jobscript.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
